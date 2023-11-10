@@ -4,6 +4,11 @@ use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\SignInController;
 
+
+use App\Http\Controllers\HomeController;
+
+
+
 use App\Http\Controllers\Auth\ProviderController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+ 
+Route::resource('/', HomeController::class); // Replace 'ProductController@index' with your actual controller and method.
+
 
 Route::middleware(['auth'])->group(function () {
     // Routes that require authentication go here

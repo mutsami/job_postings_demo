@@ -41,7 +41,9 @@ class ProductController extends Controller
             
             'industry'=> 'required',
             
-            'rate'=> 'required'
+            'rate'=> 'required',
+            
+            'phone'=> 'required'
         ]);
 
 

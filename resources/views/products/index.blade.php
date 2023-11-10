@@ -49,6 +49,9 @@
                                 Rate
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Phone
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Action
                             </th>
                         </tr>
@@ -74,10 +77,13 @@
                                 {{ $product->rate }}
                             </td>
                             <td class="px-6 py-4">
+                                {{ $product->phone }}
+                            </td>
+                            <td class="px-6 py-4">
 
                                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                                    <a class="font-medium text-blue-400 dark:text-blue-500 hover:underline" href="{{ route('products.show',$product->id) }}">Show</a>
-                                    &nbsp;
+                                    {{-- <a class="font-medium text-blue-400 dark:text-blue-500 hover:underline" href="{{ route('products.show',$product->id) }}">Show</a>
+                                    &nbsp; --}}
 
                                     <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{ route('products.edit',$product->id) }}">Edit</a>
                                     &nbsp;

@@ -14,6 +14,7 @@ class Product extends Model
         'details',
         'industry',
         'rate',
-        'user_id'
+        'user_id',
+        'phone'
     ];
 }
