@@ -7,37 +7,36 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
+
+
+        {{-- Importing resources to be used in the HTML page below --}}
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
+        {{-- This import this lib enables us to use tailwind css --}}
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
 
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
 
         <style>
-
               
         .title {
             font-family: "Libre Baskerville", serif;
             color: black!important;
-            font-weight: bold;
-            color: black;
-        
+            font-weight: bold; 
         }
+
         </style>
     </head>
     <body class="antialiased">
-        
 
-
-
-
-        <nav class="bg-white border-gray-200 dark:bg-gray-900" style="background-color: antiquewhite">
+        <nav class="  border-gray-200 dark:bg-gray-900" style="background-color: antiquewhite">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">JobSeeker</span>
             </a>
+            {{-- IF STATEMENT to check if a user exists or not hence determining what elements to display on front end --}}
             @if (isset($user))  
                   <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
@@ -112,14 +111,29 @@
         <div  style="padding: 8% ; background-color: antiquewhite;">
             <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Job Seeker</span> AI Platform.</h1>
             <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Here at JobSeeker we focus on pairing you with the most suitable service provider to fit your unique needs and requirements.</p>
-            
+               
+         
+<form class="flex items-center" style="margin-top: 5%">   
+  <div class="relative w-full">
+      
+      <input type="text" id="voice-search" name="search"
+      value="{{ request('search') }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for job titles..." >
+       
+  </div>
+  <button type="submit"   class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+       Search
+  </button>
+</form>
+
+
+
         </div>
-          
+     
  
         <div  style="padding: 8% ;">
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg"  >
-
+{{-- CSS HTML basic table to show our services --}}
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -145,7 +159,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $product)
+
+                        {{-- PHP FOR LOOP to iterate through a list of services available in the database --}}
+                        {{-- @foreach ($products as $product) --}}
+                        @forelse($products as $product)
+
     
                         <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -169,15 +187,18 @@
                             </td>
                             
                         </tr>
-                        @endforeach
+                        @empty
+                        <p> Service not found</p>
+                        @endforelse
     
                     </tbody>
                 </table>
     
     
-            </div>
+            </div>  
+            {{-- Pagination links --}}
             <div style="padding-top: 1.5em">
-                {{ $products->links('vendor.pagination.pagination') }}
+                {{-- {{ $products->links('vendor.pagination.pagination') }} --}}
             </div>
         </div>
 

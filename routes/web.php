@@ -8,6 +8,13 @@ use App\Http\Controllers\SignInController;
 use App\Http\Controllers\HomeController;
 
 
+use Illuminate\Http\Request;
+
+use App\Models\Product;
+
+use Illuminate\Support\Facades\Auth;
+
+
 
 use App\Http\Controllers\Auth\ProviderController;
 use Illuminate\Support\Facades\Route;
@@ -24,12 +31,12 @@ use Illuminate\Support\Facades\Route;
 */
 
  
-Route::resource('/', HomeController::class); // Replace 'ProductController@index' with your actual controller and method.
+Route::resource('/', HomeController::class);
 
 
 Route::middleware(['auth'])->group(function () {
     // Routes that require authentication go here
-    Route::resource('/products', ProductController::class); // Replace 'ProductController@index' with your actual controller and method.
+    Route::resource('/products', ProductController::class); 
 });
  
 Route::resource('/signin', SignInController::class);
@@ -41,3 +48,23 @@ Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback'])
 
 
 Route::get('/auth/logout', [ProviderController::class, 'logout']);
+
+
+Route::get('/', function () {
+ 
+    // Get the currently signed-in user
+    $user = Auth::user();
+    
+
+    // Check for search input
+    if (request('search')) {
+        $products = Product::where('name', 'like', '%' . request('search') . '%')->get() ;
+        
+    } else {
+        $products = Product::all(); 
+    }
+ 
+
+    return view('home', compact('products', 'user'));
+
+});

@@ -35,7 +35,6 @@
             </button>
         </div>
 
-         
     @endif
 
     <form action="{{ route('products.update',$product->id) }}" method="POST">

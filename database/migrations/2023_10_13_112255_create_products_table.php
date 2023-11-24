@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('rate'); // Define a decimal column for currency
             $table->string('phone');
             $table->string('user_id');
+            $table->string('new_field');
+
             
             // The 'price' column stores currency values with a precision of 10 and a scale of 2.
 
