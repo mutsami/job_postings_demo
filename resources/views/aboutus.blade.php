@@ -78,7 +78,7 @@
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user" >
                     <ul style="background-color: antiquewhite" class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                       <li>
-                        <a href="/signin" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Sign In</a>
+                        <a href="/signin" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"  >Sign In</a>
                       </li>
                     </ul>
                 </div>
@@ -89,10 +89,10 @@
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user" >
               <ul style="background-color: antiquewhite" class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                  <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
+                  <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:hover:text-blue-700 md:p-0 md:text-blue-500" style="color: black">Home</a>
                 </li>
                 <li>
-                  <a href="/aboutus" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                  <a href="/aboutus" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 "  aria-current="page" >About</a>
                 </li>
                 {{-- <li>
                   <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
@@ -100,103 +100,23 @@
                  
               </ul>
             </div>
+
+            
             </div>
           </nav>
 
-        <div  style="padding: 8% ; background-color: antiquewhite;">
-            <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Job Seeker</span> AI Platform.</h1>
-            <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Here at JobSeeker we focus on pairing you with the most suitable service provider to fit your unique needs and requirements.</p>
-               
-         
-<form class="flex items-center" style="margin-top: 5%">   
-  <div class="relative w-full">
-      
-      <input type="text" id="voice-search" name="search"
-      value="{{ request('search') }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for job titles..." >
-       
-  </div>
-  <button type="submit"   class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-       Search
-  </button>
-</form>
-
-
-
-        </div>
-     
  
-        <div  style="padding: 8% ;">
 
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg"  >
-{{-- CSS HTML basic table to show our services --}}
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            
-                            <th scope="col" class="px-6 py-3">
-                                Job ID
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Job Title
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Description
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Industry
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Rate
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Phone
-                            </th> 
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                        {{-- PHP FOR LOOP to iterate through a list of services available in the database --}}
-                        {{-- @foreach ($products as $product) --}}
-                        @forelse($products as $product)
-
-    
-                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $product->id }}
-                            </th>
-                            
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $product->name }}
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ $product->details }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $product->industry }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $product->rate }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $product->phone }}
-                            </td>
-                            
-                        </tr>
-                        @empty
-                        <p> Service not found</p>
-                        @endforelse
-    
-                    </tbody>
-                </table>
-    
-    
-            </div>  
-            {{-- Pagination links --}}
-            <div style="padding-top: 1.5em">
-                {{-- {{ $products->links('vendor.pagination.pagination') }} --}}
-            </div>
-        </div>
-
+<section class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
+    <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>
+        <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+        
+    </div>
+</section>
+ 
+ 
         <hr>
 
 

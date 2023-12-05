@@ -7,6 +7,8 @@ use App\Http\Controllers\SignInController;
 
 use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\AboutusController;
+
 
 use Illuminate\Http\Request;
 
@@ -32,6 +34,9 @@ use Illuminate\Support\Facades\Route;
 
  
 Route::resource('/', HomeController::class);
+
+
+Route::resource('/aboutus', AboutusController::class);
 
 
 Route::middleware(['auth'])->group(function () {
